@@ -354,7 +354,9 @@ export const renderSingleComponent: RenderSingleComponent = (imported, options, 
     debug('Rendering single component.');
     body = renderToString(component);
   } catch (err) {
-    throw new Error(`Invalid single component. Make sure you added your component as the default export from ${options.routes}`);
+    const componentPath = options.component || '';
+    const pluginErrMsg = `Invalid single component.\nMake sure you added your component as the default export from ${componentPath}.`;
+    throw new Error(`${pluginErrMsg}\n${err.message}`);
   }
 
   const doc = render({
