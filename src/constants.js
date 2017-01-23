@@ -7,6 +7,7 @@ export type OptionsShape = {
   bundle?: string,
   stylesheet?: string,
   favicon?: string,
+  component?: string,
 
   src?: string, // Deprecated. Use routes instead
 };
